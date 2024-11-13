@@ -1,0 +1,26 @@
+# Node modules
+node_modules/
+
+# Archivos de entorno
+.env
+
+# Logs
+*.log
+
+# Dependencias locales de NPM
+npm-debug.log*
+
+# Archivos de configuración del sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación
+/dist
+/build
+
+# Archivos de test
+/coverage
+
+# Archivos temporales
+*.tmp
+*.swp
