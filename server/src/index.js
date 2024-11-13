@@ -1,22 +1,21 @@
 const express = require('express');
 const cors = require('cors');
-const { sequelize, syncDatabase } = require('./database/db.js'); // Importa la configuración de la base de datos
+const { sequelize, syncDatabase } = require('./database/db.js');
+const routes = require('./routes')
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 //middlewares
 app.use(express.json());
 app.use(cors());
 
 //rutas
-app.get('/', (req, res) => {
-  res.send('Welcome to the Project Management API');
-});
+app.use('/api', routes)
 
 //sincronización con la base de datos y arranque del servidor
 const startServer = async () => {
   try {
-    await syncDatabase();  // Asegúrate de que la base de datos esté sincronizada antes de arrancar el servidor
+    await syncDatabase();
     app.listen(port, () => {
       console.log(`Server is running on port ${port}`);
     });

@@ -25,7 +25,7 @@ module.exports = (sequelize) => {
     state: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'not_active', // Estado por defecto 'active' o 'expired'
+      defaultValue: 'not_active',
     },
   });
 };

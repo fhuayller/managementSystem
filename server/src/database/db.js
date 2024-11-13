@@ -49,4 +49,4 @@ const syncDatabase = async () => {
   }
 };
 
-module.exports = { sequelize, syncDatabase };
+module.exports = { sequelize, syncDatabase, User, Project, Subscription, Task };
