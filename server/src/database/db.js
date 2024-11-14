@@ -42,7 +42,7 @@ Subscription.belongsTo(User, { foreignKey: 'userId' });
 
 const syncDatabase = async () => {
   try {
-    await sequelize.sync({ force: false });
+    await sequelize.sync({ force: true });
     console.log('Database connected and synchronized');
   } catch (error) {
     console.error('Unable to connect to the database:', error);

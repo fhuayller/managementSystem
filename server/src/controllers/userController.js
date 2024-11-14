@@ -22,7 +22,13 @@ const userController = {
 
   getProfile: async (req, res) => {
     try {
-      const user = await getUserProfile(req.user.id);
+      const userId = req.params.id || req.user.id;
+      const user = await getUserProfile(userId);
+
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+      
       res.json(user);
     } catch (error) {
       res.status(500).json({ error: 'Failed to get user', message: error.message });
