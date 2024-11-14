@@ -33,8 +33,8 @@ Project.belongsTo(User, { foreignKey: 'userId' });
 User.hasMany(Task, { foreignKey: 'userId' });
 Task.belongsTo(User, { foreignKey: 'userId' });
 
-Project.hasMany(Task, { foreignKey: 'projectId' });
 Task.belongsTo(Project, { foreignKey: 'projectId' });
+Project.hasMany(Task, { foreignKey: 'projectId' });
 
 User.hasMany(Subscription, { foreignKey: 'userId' });
 Subscription.belongsTo(User, { foreignKey: 'userId' });
