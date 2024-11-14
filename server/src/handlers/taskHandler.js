@@ -19,4 +19,13 @@ const getTaskByProjectId = async ( projectId ) =>{
     return tasks
 }
 
-module.exports = { createNewTask, getTaskByProjectId };
+const updateTaskById = async ( taskId, updatedData ) =>{
+    const task = await Task.findByPk(taskId);
+    if(!task) throw new Error('task not found');
+
+    const updatedTask = await task.update(updatedData)
+
+    return updatedTask;
+}
+
+module.exports = { createNewTask, getTaskByProjectId, updateTaskById };
