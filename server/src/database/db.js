@@ -36,13 +36,13 @@ Task.belongsTo(User, { foreignKey: 'userId' });
 Task.belongsTo(Project, { foreignKey: 'projectId' });
 Project.hasMany(Task, { foreignKey: 'projectId' });
 
-User.hasMany(Subscription, { foreignKey: 'userId' });
-Subscription.belongsTo(User, { foreignKey: 'userId' });
+User.hasOne(Subscription, { foreignKey: 'userId', as: 'subscription' });
+Subscription.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 
 
 const syncDatabase = async () => {
   try {
-    await sequelize.sync({ force: false });
+    await sequelize.sync({ force: true });
     console.log('Database connected and synchronized');
   } catch (error) {
     console.error('Unable to connect to the database:', error);

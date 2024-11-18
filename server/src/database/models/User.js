@@ -43,5 +43,10 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: DataTypes.NOW, // fecha de registro
     },
+    isSubscribed: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    }
   });
 };
